@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:#f9f6f1; --warm-white:#fdfbf8; --sage:#8a9e8c; --sage-light:#b8c9b9;
+      --sage-dark:#5f7861; --charcoal:#3a3530; --mid-grey:#6b6460;
+      --font-serif:'Cormorant Garamond',Georgia,serif;
+      --font-sans:'Inter',system-ui,sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); font-weight: 300; background: var(--sage-dark); }
+
+    .banner {
+      background: var(--sage-dark);
+      padding: 4.5rem 2rem;
+      text-align: center;
+    }
+    .inner { max-width: 680px; margin: 0 auto; }
+
+    .eyebrow {
+      font-size: 0.67rem; font-weight: 500; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--sage-light); display: block; margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 300;
+      color: var(--warm-white);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .subtitle {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 2.2rem;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .phone {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-style: italic;
+      color: rgba(255,255,255,0.88);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: color 0.2s;
+    }
+    .phone:hover { color: var(--sage-light); }
+
+    .actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2.2rem;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      border: 1px solid;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn--primary {
+      background: var(--warm-white);
+      color: var(--sage-dark);
+      border-color: var(--warm-white);
+    }
+    .btn--primary:hover {
+      background: var(--cream);
+      border-color: var(--cream);
+    }
+
+    .btn--ghost {
+      background: transparent;
+      color: rgba(255,255,255,0.75);
+      border-color: rgba(255,255,255,0.35);
+    }
+    .btn--ghost:hover {
+      background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.95);
+    }
+
+    @media (max-width: 500px) {
+      .actions { flex-direction: column; align-items: center; }
+      .banner { padding: 3.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <div class="inner">
+      <span class="eyebrow">Take the first step</span>
+      <h2>Ready to begin your journey?</h2>
+      <p class="subtitle">Call for a free, no-obligation chat to discuss how acupuncture and herbal medicine could support your health and wellbeing.</p>
+      <a href="tel:+447747065296" class="phone">07747 065296</a>
+      <div class="actions">
+        <a href="/contact" class="btn btn--primary">Book a Consultation</a>
+        <a href="/treatments" class="btn btn--ghost">Explore Treatments</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

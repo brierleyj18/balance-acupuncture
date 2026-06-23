@@ -1,0 +1,52 @@
+<!-- ============================================================
+     BALANCE ACUPUNCTURE — WIX CUSTOM CODE (HEAD INJECTION)
+
+     HOW TO INSTALL:
+     Wix Dashboard → Settings → Custom Code → + Add Custom Code
+     Paste everything BETWEEN the <style> and </style> tags (including those tags)
+     Place in: Head | Add to: All Pages
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<style>
+  /* ── Balance Acupuncture — Global Design Tokens ── */
+  :root {
+    /* Colour palette */
+    --cream:        #f9f6f1;
+    --warm-white:   #fdfbf8;
+    --sage:         #8a9e8c;
+    --sage-light:   #b8c9b9;
+    --sage-dark:    #5f7861;
+    --stone:        #c9bfae;
+    --charcoal:     #3a3530;
+    --mid-grey:     #6b6460;
+    --light-grey:   #9e9894;
+    --border:       #e4ddd4;
+
+    /* Typography */
+    --font-serif:   'Cormorant Garamond', Georgia, serif;
+    --font-sans:    'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Smooth scrolling */
+  html { scroll-behavior: smooth; }
+
+  /* Apply fonts to Wix text elements (Wix-safe selectors) */
+  body,
+  .font_0, .font_1, .font_2, .font_3, .font_4, .font_5,
+  .font_6, .font_7, .font_8, .font_9 {
+    font-family: var(--font-sans) !important;
+    font-weight: 300;
+  }
+
+  /* Wix heading overrides — apply serif to H1, H2 */
+  h1, h2,
+  [data-hook="container"] h1,
+  [data-hook="container"] h2 {
+    font-family: var(--font-serif) !important;
+    font-weight: 300 !important;
+  }
+</style>

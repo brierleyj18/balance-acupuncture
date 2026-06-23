@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:#f9f6f1; --sage:#8a9e8c; --sage-light:#b8c9b9; --sage-dark:#5f7861;
+      --charcoal:#3a3530; --mid-grey:#6b6460;
+      --font-serif:'Cormorant Garamond',Georgia,serif;
+      --font-sans:'Inter',system-ui,sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-sans);
+      font-weight: 300;
+      background: var(--charcoal);
+      margin: 0;
+      padding: 0;
+    }
+
+    .strip {
+      background: var(--charcoal);
+      padding: 3rem 2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 1100px;
+      margin: 0 auto;
+      gap: 0;
+    }
+
+    .item {
+      padding: 1.5rem 2.5rem;
+      border-right: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    }
+    .item:last-child { border-right: none; }
+
+    .item-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sage-light);
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+
+    .item-title {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.9);
+      display: block;
+      margin-bottom: 0.7rem;
+      line-height: 1.2;
+    }
+
+    .item p {
+      color: rgba(255,255,255,0.48);
+      font-size: 0.82rem;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 700px) {
+      .grid { grid-template-columns: 1fr; }
+      .item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+      .item:last-child { border-bottom: none; }
+      .strip { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="strip">
+    <div class="grid">
+      <div class="item">
+        <span class="item-eyebrow">Treatment</span>
+        <span class="item-title">Acupuncture</span>
+        <p>Traditional Chinese Medicine to relieve pain, reduce stress and restore your natural balance</p>
+      </div>
+      <div class="item">
+        <span class="item-eyebrow">Treatment</span>
+        <span class="item-title">Herbal Medicine</span>
+        <p>Personalised herbal prescriptions that extend and deepen your therapeutic care</p>
+      </div>
+      <div class="item">
+        <span class="item-eyebrow">Approach</span>
+        <span class="item-title">Holistic Care</span>
+        <p>Integrated advice on diet, lifestyle and long-term wellbeing, tailored entirely to you</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:#f9f6f1; --warm-white:#fdfbf8; --sage:#8a9e8c; --sage-light:#b8c9b9;
+      --sage-dark:#5f7861; --stone:#c9bfae; --charcoal:#3a3530; --mid-grey:#6b6460;
+      --border:#e4ddd4;
+      --font-serif:'Cormorant Garamond',Georgia,serif;
+      --font-sans:'Inter',system-ui,sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); font-weight: 300; background: var(--warm-white); }
+    h2, h3 { font-family: var(--font-serif); font-weight: 300; line-height: 1.2; color: var(--charcoal); }
+    h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); }
+    h3 { font-size: 1.4rem; font-style: italic; }
+    p { color: var(--mid-grey); font-size: 0.95rem; line-height: 1.9; }
+
+    .eyebrow {
+      font-size: 0.68rem; font-weight: 500; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 0.9rem;
+    }
+    .divider { width: 36px; height: 1px; background: var(--sage); margin: 1.3rem 0; }
+
+    /* ── What is herbal ── */
+    .what-section {
+      padding: 4rem 2rem;
+      background: var(--warm-white);
+    }
+    .what-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+    }
+    .what-visual {
+      aspect-ratio: 4/5;
+      background: linear-gradient(160deg, #d4e0d4 0%, var(--stone) 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .what-text h2 { margin-bottom: 1rem; }
+    .what-text p { margin-bottom: 1.2rem; }
+
+    /* ── How it supports ── */
+    .supports-section {
+      padding: 4rem 2rem;
+      background: var(--cream);
+    }
+    .supports-inner { max-width: 1100px; margin: 0 auto; }
+    .supports-header { text-align: center; max-width: 680px; margin: 0 auto 3rem; }
+    .supports-header h2 { margin-bottom: 0.8rem; }
+    .divider-center { width: 36px; height: 1px; background: var(--sage); margin: 1.2rem auto; }
+    .supports-cards {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem;
+    }
+    .support-card {
+      padding: 2.5rem 2rem;
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+    }
+    .support-card-title {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--sage);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .support-card p { font-size: 0.875rem; }
+
+    @media (max-width: 800px) {
+      .what-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .what-visual { min-height: 260px; aspect-ratio: auto; }
+      .supports-cards { grid-template-columns: 1fr; }
+      .what-section, .supports-section { padding: 3rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- What is herbal medicine -->
+  <div class="what-section">
+    <div class="what-inner">
+      <div class="what-visual">
+        <svg viewBox="0 0 280 340" width="150" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M140 310 C140 310 65 230 55 158 C45 86 88 42 140 35 C192 28 238 72 232 148 C226 222 140 310 140 310Z" stroke="#5f7861" stroke-width="1.5" fill="rgba(95,120,97,.15)"/>
+          <path d="M140 310 C140 310 185 225 196 157 C207 89 192 47 168 36" stroke="#5f7861" stroke-width="1.3" fill="none"/>
+          <path d="M95 160 C75 145 55 150 48 168" stroke="#5f7861" stroke-width="1.1" fill="none"/>
+          <path d="M185 165 C205 150 225 156 231 175" stroke="#5f7861" stroke-width="1.1" fill="none"/>
+          <circle cx="88" cy="55" r="16" stroke="#5f7861" stroke-width="1.2" fill="rgba(95,120,97,.1)"/>
+          <circle cx="198" cy="62" r="11" stroke="#5f7861" stroke-width="1.2" fill="rgba(95,120,97,.1)"/>
+        </svg>
+      </div>
+      <div class="what-text">
+        <span class="eyebrow">What is it?</span>
+        <h2>Rooted in nature, tailored to you</h2>
+        <div class="divider"></div>
+        <p>Chinese herbal medicine is one of the oldest continuous medical traditions in the world, with a documented history spanning over 2,500 years. It forms one of the core pillars of Traditional Chinese Medicine, alongside acupuncture.</p>
+        <p>Herbal formulas are composed of carefully selected combinations of natural plant materials — roots, bark, leaves, seeds and flowers — each with distinct therapeutic properties, combined synergistically to address your specific pattern of health.</p>
+        <p>Unlike supplements or single-herb remedies, a Chinese herbal prescription treats the whole person. Two patients with the same Western diagnosis may receive entirely different formulas — because Chinese medicine looks beneath the symptom to understand the underlying imbalance.</p>
+        <p>At Balance Acupuncture, herbal medicine is offered both alongside acupuncture and as a standalone therapeutic option.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- How it supports acupuncture -->
+  <div class="supports-section">
+    <div class="supports-inner">
+      <div class="supports-header">
+        <span class="eyebrow">The integrated approach</span>
+        <h2>How herbal medicine supports acupuncture</h2>
+        <div class="divider-center"></div>
+        <p>Acupuncture and Chinese herbal medicine are the two primary branches of Traditional Chinese Medicine — designed to work in concert for a depth of care that neither achieves alone.</p>
+      </div>
+      <div class="supports-cards">
+        <div class="support-card">
+          <span class="support-card-title">Continuity</span>
+          <p>Acupuncture works in the session. Herbal medicine works between sessions — maintaining and extending the therapeutic momentum so your body continues to heal around the clock.</p>
+        </div>
+        <div class="support-card">
+          <span class="support-card-title">Depth</span>
+          <p>Where acupuncture is powerful for moving Qi and addressing structural imbalances, herbal medicine excels at nourishing deep constitutional weaknesses that require sustained internal support.</p>
+        </div>
+        <div class="support-card">
+          <span class="support-card-title">Precision</span>
+          <p>Your herbal prescription is reviewed and refined at every appointment. As your health picture changes, your formula evolves with it — always precisely matched to where you are right now.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

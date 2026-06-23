@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:#f9f6f1; --warm-white:#fdfbf8; --sage:#8a9e8c; --sage-light:#b8c9b9;
+      --sage-dark:#5f7861; --charcoal:#3a3530; --mid-grey:#6b6460; --border:#e4ddd4;
+      --font-serif:'Cormorant Garamond',Georgia,serif;
+      --font-sans:'Inter',system-ui,sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); font-weight: 300; background: var(--warm-white); }
+    h2 { font-family: var(--font-serif); font-weight: 300; font-size: clamp(1.7rem,3vw,2.4rem); color: var(--charcoal); line-height: 1.2; }
+    p { color: var(--mid-grey); font-size: 0.95rem; line-height: 1.9; }
+
+    .eyebrow { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 0.8rem; }
+    .divider-center { width: 36px; height: 1px; background: var(--sage); margin: 1.2rem auto; }
+
+    .section {
+      padding: 4rem 2rem;
+      background: var(--warm-white);
+    }
+    .inner { max-width: 1100px; margin: 0 auto; }
+
+    .header { text-align: center; max-width: 640px; margin: 0 auto 3rem; }
+    .header h2 { margin-bottom: 0.6rem; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+    }
+
+    .step {
+      padding: 2.5rem 2rem;
+      border-right: 1px solid var(--border);
+      background: var(--warm-white);
+      transition: background 0.2s;
+    }
+    .step:last-child { border-right: none; }
+    .step:hover { background: var(--cream); }
+
+    .step-num {
+      font-family: var(--font-serif);
+      font-size: 3.2rem;
+      color: var(--sage-light);
+      line-height: 1;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .step h4 {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--charcoal);
+      letter-spacing: 0;
+      text-transform: none;
+      margin-bottom: 0.7rem;
+      line-height: 1.3;
+    }
+
+    .step p { font-size: 0.855rem; }
+
+    @media (max-width: 800px) {
+      .steps { grid-template-columns: 1fr 1fr; }
+      .step { border-bottom: 1px solid var(--border); }
+      .step:nth-child(2n) { border-right: none; }
+      .step:nth-last-child(-n+2) { border-bottom: none; }
+    }
+    @media (max-width: 500px) {
+      .steps { grid-template-columns: 1fr; }
+      .step { border-right: none; border-bottom: 1px solid var(--border); }
+      .step:last-child { border-bottom: none; }
+      .section { padding: 3rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="section">
+    <div class="inner">
+      <div class="header">
+        <span class="eyebrow">The process</span>
+        <h2>Your herbal medicine journey</h2>
+        <div class="divider-center"></div>
+        <p>From your first conversation to your evolving prescription, here is how herbal medicine works at Balance Acupuncture.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="step-num">01</span>
+          <h4>Your consultation</h4>
+          <p>Sue takes a thorough case history, exploring not only your presenting symptoms but your overall constitution — digestion, sleep, energy, emotional state and more. This holistic picture forms the foundation of your prescription.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <h4>Your diagnosis</h4>
+          <p>Using tongue and pulse assessment alongside detailed questioning, Sue identifies your underlying pattern of disharmony in Chinese medicine terms. This is what your prescription is built around — not just your symptoms.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <h4>Your formula</h4>
+          <p>Your personalised herbal formula is carefully prepared using quality-tested, ethically sourced herbs. Sue will explain what your formula is designed to address and answer any questions about the ingredients.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <h4>Ongoing review</h4>
+          <p>Your prescription is reassessed at every appointment and adjusted as your health evolves. Herbal medicine is dynamic — your formula should change as you do, always meeting you where you are.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

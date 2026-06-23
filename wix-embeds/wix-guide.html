@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wix Embed Guide | Balance Acupuncture</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #f9f6f1; --warm-white: #fdfbf8; --sage: #8a9e8c;
+      --sage-light: #b8c9b9; --sage-dark: #5f7861; --charcoal: #3a3530;
+      --mid-grey: #6b6460; --border: #e4ddd4;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Inter', system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); font-weight: 300; background: var(--warm-white); color: var(--charcoal); line-height: 1.7; font-size: 15px; }
+    h1, h2, h3 { font-family: var(--font-serif); font-weight: 300; }
+    p { color: var(--mid-grey); }
+
+    .header { background: var(--charcoal); padding: 3rem 2rem; text-align: center; }
+    .header h1 { color: var(--warm-white); font-size: 2.2rem; margin-bottom: 0.5rem; }
+    .header p { color: rgba(255,255,255,0.55); font-size: 0.9rem; }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+
+    .step-section { margin-bottom: 3.5rem; }
+    .step-section h2 { font-size: 1.6rem; margin-bottom: 0.5rem; font-style: italic; }
+    .step-section p { margin-bottom: 1rem; }
+
+    .badge {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      margin-bottom: 1rem;
+    }
+    .badge--head { background: #e8f0e8; color: var(--sage-dark); }
+    .badge--embed { background: #f0ede8; color: #7a6845; }
+    .badge--page { background: #e8eaf0; color: #4a5070; }
+
+    .embed-card {
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+    .embed-card-header {
+      background: var(--cream);
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .embed-card-header h3 { font-size: 1.1rem; font-style: italic; }
+    .embed-meta { font-size: 0.75rem; color: var(--mid-grey); }
+    .embed-card-body { padding: 1.5rem; }
+    .embed-card-body p { font-size: 0.875rem; margin-bottom: 0.8rem; }
+
+    .file-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.4rem;
+      background: var(--sage-dark);
+      color: white;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s;
+      margin-top: 0.5rem;
+    }
+    .file-link:hover { background: var(--sage); }
+    .file-link--outline {
+      background: transparent;
+      color: var(--sage-dark);
+      border: 1px solid var(--sage-dark);
+    }
+    .file-link--outline:hover { background: var(--sage-dark); color: white; }
+
+    .step-list { list-style: none; counter-reset: steps; margin: 1.2rem 0; }
+    .step-list li {
+      counter-increment: steps;
+      padding: 0.7rem 0 0.7rem 2.5rem;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.875rem;
+      color: var(--mid-grey);
+    }
+    .step-list li:last-child { border-bottom: none; }
+    .step-list li::before {
+      content: counter(steps);
+      position: absolute;
+      left: 0;
+      top: 0.7rem;
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      color: var(--sage);
+    }
+    .step-list li strong { color: var(--charcoal); font-weight: 500; }
+
+    .tip-box {
+      background: linear-gradient(135deg, #e8ede8 0%, var(--cream) 100%);
+      border-left: 3px solid var(--sage);
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0;
+      font-size: 0.875rem;
+    }
+    .tip-box strong { color: var(--charcoal); display: block; margin-bottom: 0.3rem; }
+
+    .page-map {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .page-map-item {
+      padding: 1.2rem;
+      border: 1px solid var(--border);
+      background: var(--warm-white);
+    }
+    .page-map-item h4 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: 1rem;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+    .page-map-item ul { list-style: none; }
+    .page-map-item ul li {
+      font-size: 0.78rem;
+      color: var(--mid-grey);
+      padding: 0.2rem 0;
+      padding-left: 0.8rem;
+      position: relative;
+    }
+    .page-map-item ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--sage);
+      font-size: 0.65rem;
+      top: 0.25rem;
+    }
+
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.85rem; }
+    th { background: var(--charcoal); color: white; padding: 0.7rem 1rem; text-align: left; font-weight: 400; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    td { padding: 0.7rem 1rem; border-bottom: 1px solid var(--border); color: var(--mid-grey); }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: var(--cream); }
+
+    @media (max-width: 600px) { .page-map { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Wix Embed Guide</h1>
+  <p>Balance Acupuncture — how to install each snippet into your Wix site</p>
+</div>
+
+<div class="container">
+
+  <!-- Overview -->
+  <div class="step-section">
+    <h2>How this works</h2>
+    <p>The snippets in this folder are self-contained HTML blocks, each designed for a specific section of your Wix site. There are two types:</p>
+    <ul style="margin: 1rem 0 1.5rem; padding-left: 1.5rem; color: var(--mid-grey); font-size: 0.875rem; line-height: 2;">
+      <li><strong style="color:var(--charcoal);">Head code</strong> — added once to your whole site via Wix Dashboard → Settings → Custom Code. This sets up the fonts and colour palette globally.</li>
+      <li><strong style="color:var(--charcoal);">HTML iframe embeds</strong> — added to individual pages via Wix Editor → Add → Embed → HTML iframe. Each is a complete section (conditions grid, testimonials, etc.).</li>
+    </ul>
+    <div class="tip-box">
+      <strong>Start with the head code first.</strong> Install <code>wix-head-code.html</code> before adding any section embeds, so the fonts load correctly across your site.
+    </div>
+  </div>
+
+  <!-- Step 1: Head code -->
+  <div class="step-section">
+    <h2>Step 1 — Install the head code</h2>
+    <span class="badge badge--head">Wix Dashboard → Custom Code</span>
+    <p>This adds the Google Fonts (Cormorant Garamond + Inter) and the colour palette variables to every page of your site.</p>
+
+    <ol class="step-list">
+      <li>Go to your <strong>Wix Dashboard</strong> (not the Editor — the dashboard at manage.wix.com)</li>
+      <li>Click <strong>Settings</strong> in the left sidebar</li>
+      <li>Scroll down to <strong>Custom Code</strong> and click it</li>
+      <li>Click <strong>+ Add Custom Code</strong></li>
+      <li>Open the file <code>wix-head-code.html</code> from this folder, copy all the code inside it</li>
+      <li>Paste it into the code box in Wix</li>
+      <li>Set <strong>Place Code in</strong> to <em>Head</em></li>
+      <li>Set <strong>Add Code to Pages</strong> to <em>All Pages</em></li>
+      <li>Give it a name like "Balance Design System" and click <strong>Apply</strong></li>
+    </ol>
+
+    <a href="wix-head-code.html" class="file-link">Open wix-head-code.html</a>
+  </div>
+
+  <!-- Step 2: How to add an embed -->
+  <div class="step-section">
+    <h2>Step 2 — Adding section embeds</h2>
+    <span class="badge badge--embed">Wix Editor → HTML iframe</span>
+    <p>Each section embed below follows the same installation process:</p>
+
+    <ol class="step-list">
+      <li>Open the page in <strong>Wix Editor</strong> where you want the section to appear</li>
+      <li>Click <strong>Add (+)</strong> in the left panel</li>
+      <li>Go to <strong>Embed Code → Embed HTML</strong> (sometimes listed as "HTML iframe")</li>
+      <li>Drag the element onto your page</li>
+      <li>Click the element, then click <strong>Enter Code</strong></li>
+      <li>Open the relevant embed file, copy all the code, and paste it in</li>
+      <li>Click <strong>Update</strong> to preview</li>
+      <li>Resize the iframe height in Wix to match the content height shown in the table below</li>
+      <li>Set the iframe <strong>width to 100%</strong> by stretching it edge to edge</li>
+    </ol>
+
+    <div class="tip-box">
+      <strong>Width tip.</strong> After placing the iframe, right-click it → "Stretch to full width" or drag the edges to the full page width. Each embed is designed to fill its container naturally.
+    </div>
+  </div>
+
+  <!-- Section embeds -->
+  <div class="step-section">
+    <h2>Step 3 — The section embeds</h2>
+    <span class="badge badge--embed">One file per section</span>
+    <p>Here is every embed file, where it goes, and what height to set the Wix iframe at.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>File</th>
+          <th>Section</th>
+          <th>Goes on page</th>
+          <th>Suggested iframe height</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><code>embed-services-strip.html</code></td><td>3-pillar services bar (dark)</td><td>Homepage, below hero</td><td>220px</td></tr>
+        <tr><td><code>embed-treatments-intro.html</code></td><td>Acupuncture & Herbal Medicine intro split</td><td>Homepage</td><td>900px</td></tr>
+        <tr><td><code>embed-herbal-intro.html</code></td><td>What is herbal medicine + how it works</td><td>Herbal Medicine page</td><td>820px</td></tr>
+        <tr><td><code>embed-herbal-process.html</code></td><td>4-step herbal consultation process</td><td>Herbal Medicine page</td><td>500px</td></tr>
+        <tr><td><code>embed-conditions-grid.html</code></td><td>Full conditions grid with tags</td><td>Conditions page</td><td>1800px</td></tr>
+        <tr><td><code>embed-testimonials.html</code></td><td>3 patient testimonials</td><td>Homepage, About page</td><td>480px</td></tr>
+        <tr><td><code>embed-cta-banner.html</code></td><td>Call-to-action banner with phone number</td><td>Any page, near bottom</td><td>420px</td></tr>
+        <tr><td><code>embed-what-to-expect.html</code></td><td>6-card "What to Expect" grid</td><td>Treatments/Services page</td><td>780px</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Page map -->
+  <div class="step-section">
+    <h2>Which embeds go where</h2>
+    <p>A quick reference for building out each page in Wix.</p>
+    <div class="page-map">
+      <div class="page-map-item">
+        <h4>Homepage</h4>
+        <ul>
+          <li>embed-services-strip.html</li>
+          <li>embed-treatments-intro.html</li>
+          <li>embed-testimonials.html</li>
+          <li>embed-cta-banner.html</li>
+        </ul>
+      </div>
+      <div class="page-map-item">
+        <h4>Treatments / Services</h4>
+        <ul>
+          <li>embed-what-to-expect.html</li>
+          <li>embed-cta-banner.html</li>
+        </ul>
+      </div>
+      <div class="page-map-item">
+        <h4>Herbal Medicine</h4>
+        <ul>
+          <li>embed-herbal-intro.html</li>
+          <li>embed-herbal-process.html</li>
+          <li>embed-cta-banner.html</li>
+        </ul>
+      </div>
+      <div class="page-map-item">
+        <h4>Conditions</h4>
+        <ul>
+          <li>embed-conditions-grid.html</li>
+          <li>embed-cta-banner.html</li>
+        </ul>
+      </div>
+      <div class="page-map-item">
+        <h4>About</h4>
+        <ul>
+          <li>embed-testimonials.html</li>
+          <li>embed-cta-banner.html</li>
+        </ul>
+      </div>
+      <div class="page-map-item">
+        <h4>Contact / Fees</h4>
+        <ul>
+          <li>embed-cta-banner.html (optional)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tips -->
+  <div class="step-section">
+    <h2>Helpful tips</h2>
+    <div class="tip-box">
+      <strong>Mobile preview.</strong> After adding each embed, switch to mobile view in the Wix Editor to check it displays correctly. The embeds are all responsive, but you may need to adjust the iframe height separately for mobile.
+    </div>
+    <div class="tip-box" style="margin-top:1rem;">
+      <strong>Background colours.</strong> Each embed has a transparent or white background. If a section embed has a cream background (like the conditions grid), make sure the Wix section strip behind it matches — use hex <code>#f9f6f1</code> in Wix's colour picker.
+    </div>
+    <div class="tip-box" style="margin-top:1rem;">
+      <strong>Fonts not loading?</strong> Make sure <code>wix-head-code.html</code> was installed in Custom Code → Head before previewing. If fonts still don't load inside the iframe, each embed also includes its own local font link as a fallback.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

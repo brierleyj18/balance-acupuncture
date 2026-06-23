@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:#f9f6f1; --warm-white:#fdfbf8; --sage:#8a9e8c; --sage-light:#b8c9b9;
+      --sage-dark:#5f7861; --stone:#c9bfae; --charcoal:#3a3530; --mid-grey:#6b6460;
+      --border:#e4ddd4;
+      --font-serif:'Cormorant Garamond',Georgia,serif;
+      --font-sans:'Inter',system-ui,sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); font-weight: 300; background: var(--cream); }
+    h2 { font-family: var(--font-serif); font-weight: 300; font-size: clamp(1.7rem,2.8vw,2.4rem); color: var(--charcoal); line-height: 1.2; }
+    p { color: var(--mid-grey); font-size: 0.95rem; line-height: 1.9; }
+    a { color: inherit; text-decoration: none; }
+    .eyebrow { font-size: 0.67rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 0.8rem; }
+    .divider { width: 36px; height: 1px; background: var(--sage); margin: 1.2rem 0; }
+    .btn { display: inline-block; padding: 0.8rem 2rem; font-family: var(--font-sans); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; border: 1px solid; transition: all 0.25s; }
+    .btn--sage { color: var(--sage-dark); border-color: var(--sage-dark); background: transparent; }
+    .btn--sage:hover { background: var(--sage-dark); color: white; }
+
+    /* Intro header */
+    .intro { padding: 4rem 2rem 2rem; background: var(--cream); text-align: center; }
+    .intro-inner { max-width: 680px; margin: 0 auto; }
+    .intro h2 { margin-bottom: 0.8rem; }
+    .divider-center { width: 36px; height: 1px; background: var(--sage); margin: 1.2rem auto; }
+    .intro p { max-width: 600px; margin: 0 auto; }
+
+    /* Split panels */
+    .panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+      min-height: 400px;
+      margin-top: 2px;
+    }
+    .panel--reverse { direction: rtl; }
+    .panel--reverse > * { direction: ltr; }
+
+    .panel-visual {
+      min-height: 360px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .panel-visual--blue { background: linear-gradient(160deg, #d4e0d4 0%, var(--stone) 100%); }
+    .panel-visual--herb { background: linear-gradient(160deg, #d0ddd0 0%, #e8e0d4 100%); }
+
+    .panel-visual svg { opacity: 0.2; }
+
+    .panel-text {
+      padding: 3.5rem 4rem;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .panel-text--white { background: var(--warm-white); }
+    .panel-text--cream { background: var(--cream); }
+    .panel-text h2 { margin-bottom: 1rem; }
+    .panel-text p { margin-bottom: 1.1rem; }
+
+    .herbal-note {
+      background: linear-gradient(135deg, #e8ede8 0%, var(--cream) 100%);
+      border-left: 3px solid var(--sage);
+      padding: 1.2rem 1.5rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .herbal-note h4 {
+      font-family: var(--font-serif); font-size: 0.95rem; font-style: italic; font-weight: 400;
+      color: var(--charcoal); margin-bottom: 0.3rem;
+    }
+    .herbal-note p { font-size: 0.84rem; }
+
+    @media (max-width: 800px) {
+      .panel { grid-template-columns: 1fr; direction: ltr; }
+      .panel--reverse { direction: ltr; }
+      .panel-visual { min-height: 240px; }
+      .panel-text { padding: 2.5rem 2rem; }
+      .intro { padding: 3rem 1.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Section header -->
+  <div class="intro">
+    <div class="intro-inner">
+      <span class="eyebrow">Our Treatments</span>
+      <h2>Acupuncture & Herbal Medicine</h2>
+      <div class="divider-center"></div>
+      <p>Two complementary pathways to healing — used individually or together for the most complete therapeutic effect. Both rooted in Traditional Chinese Medicine and adapted entirely to your needs.</p>
+    </div>
+  </div>
+
+  <!-- Acupuncture panel -->
+  <div class="panel">
+    <div class="panel-visual panel-visual--blue">
+      <svg viewBox="0 0 280 280" width="180" fill="none">
+        <circle cx="140" cy="140" r="90" stroke="#5f7861" stroke-width="1.5"/>
+        <circle cx="140" cy="140" r="44" stroke="#5f7861" stroke-width="1" fill="rgba(95,120,97,.1)"/>
+        <path d="M140 50 L140 230 M50 140 L230 140" stroke="#5f7861" stroke-width=".8" opacity=".4"/>
+        <path d="M103 78 L177 202 M177 78 L103 202" stroke="#5f7861" stroke-width=".7" opacity=".3"/>
+      </svg>
+    </div>
+    <div class="panel-text panel-text--white">
+      <span class="eyebrow">Acupuncture</span>
+      <h2>Ancient wisdom, modern care</h2>
+      <div class="divider"></div>
+      <p>Acupuncture works by stimulating specific points along the body's energy pathways, encouraging your natural ability to heal, regulate and restore balance.</p>
+      <p>Fine, single-use needles are placed with precision and care. Most people find the experience deeply relaxing — often drifting into a restorative rest during their session.</p>
+      <p>From chronic pain and hormonal imbalance to anxiety and digestive health, acupuncture offers a gentle yet profound approach to long-term wellbeing.</p>
+      <div class="herbal-note">
+        <h4>Better together with Herbal Medicine</h4>
+        <p>Many patients find that combining acupuncture with a personalised herbal prescription deepens and extends the therapeutic benefits between sessions.</p>
+      </div>
+      <a href="/treatments" class="btn btn--sage">Acupuncture Treatments</a>
+    </div>
+  </div>
+
+  <!-- Herbal Medicine panel -->
+  <div class="panel panel--reverse" style="margin-top:2px;">
+    <div class="panel-visual panel-visual--herb">
+      <svg viewBox="0 0 280 330" width="180" fill="none">
+        <path d="M140 300 C140 300 68 222 58 152 C48 82 90 42 140 36 C190 30 234 72 228 146 C222 218 140 300 140 300Z" stroke="#5f7861" stroke-width="1.5" fill="rgba(95,120,97,.12)"/>
+        <path d="M140 300 C140 300 185 218 197 152 C209 86 194 46 170 36" stroke="#5f7861" stroke-width="1.3" fill="none"/>
+        <circle cx="86" cy="58" r="15" stroke="#5f7861" stroke-width="1.2" fill="rgba(95,120,97,.12)"/>
+        <circle cx="196" cy="66" r="11" stroke="#5f7861" stroke-width="1.2" fill="rgba(95,120,97,.12)"/>
+        <path d="M96 155 C78 140 58 145 52 164" stroke="#5f7861" stroke-width="1.1" fill="none"/>
+        <path d="M184 160 C202 145 222 151 228 170" stroke="#5f7861" stroke-width="1.1" fill="none"/>
+      </svg>
+    </div>
+    <div class="panel-text panel-text--cream">
+      <span class="eyebrow">Chinese Herbal Medicine</span>
+      <h2>Personalised prescriptions from nature</h2>
+      <div class="divider"></div>
+      <p>Chinese herbal medicine is one of the oldest and most sophisticated systems of natural medicine in the world — with a continuous clinical history spanning over 2,500 years.</p>
+      <p>Each prescription is carefully tailored to your individual pattern of health. Using time-tested combinations of roots, leaves, flowers and bark, your formula evolves as you do — working with your body's natural healing processes.</p>
+      <p>Offered alongside acupuncture or as a standalone therapy, herbal medicine extends and deepens your therapeutic care between sessions.</p>
+      <a href="/herbal-medicine" class="btn btn--sage" style="margin-top:0.8rem;">About Herbal Medicine</a>
+    </div>
+  </div>
+
+</body>
+</html>

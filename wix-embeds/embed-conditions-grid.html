@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:#f9f6f1; --warm-white:#fdfbf8; --sage:#8a9e8c; --sage-light:#b8c9b9;
+      --sage-dark:#5f7861; --charcoal:#3a3530; --mid-grey:#6b6460; --border:#e4ddd4;
+      --font-serif:'Cormorant Garamond',Georgia,serif;
+      --font-sans:'Inter',system-ui,sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); font-weight: 300; background: var(--warm-white); }
+    h2 { font-family: var(--font-serif); font-weight: 300; font-size: clamp(1.6rem,2.5vw,2.2rem); color: var(--charcoal); line-height: 1.2; }
+    h3 { font-family: var(--font-serif); font-weight: 300; font-size: 1.3rem; color: var(--charcoal); }
+    p { color: var(--mid-grey); font-size: 0.93rem; line-height: 1.85; }
+
+    .eyebrow { font-size: 0.67rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 0.8rem; }
+    .divider-center { width: 36px; height: 1px; background: var(--sage); margin: 1.1rem auto; }
+
+    .page { padding: 4rem 2rem; }
+    .inner { max-width: 1100px; margin: 0 auto; }
+
+    .page-header { text-align: center; max-width: 640px; margin: 0 auto 1.5rem; }
+
+    /* Legend */
+    .legend {
+      display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .legend-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: var(--mid-grey); }
+    .tag {
+      font-size: 0.62rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.2rem 0.6rem; border: 1px solid;
+    }
+    .tag--acu { color: var(--sage-dark); border-color: var(--sage-light); }
+    .tag--herb { color: #7a6845; border-color: #c4aa7d; }
+
+    /* Category */
+    .category { margin-bottom: 3.5rem; }
+    .cat-header {
+      display: flex; align-items: center; gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .cat-icon {
+      width: 48px; height: 48px; flex-shrink: 0;
+      background: var(--sage-light);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-serif); font-style: italic; font-size: 1.4rem; color: var(--sage-dark);
+    }
+    .cat-header h3 { font-size: 1.3rem; font-style: italic; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .item {
+      background: var(--warm-white);
+      padding: 1.5rem 1.6rem;
+      transition: background 0.18s;
+    }
+    .item:hover { background: var(--cream); }
+
+    .item-name {
+      font-family: var(--font-serif);
+      font-size: 1rem; font-weight: 400; font-style: italic;
+      color: var(--charcoal); margin-bottom: 0.35rem;
+    }
+    .item p { font-size: 0.81rem; margin-bottom: 0.7rem; }
+    .item-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+
+    /* Note box */
+    .note {
+      background: linear-gradient(135deg, #e8ede8 0%, var(--cream) 100%);
+      border-left: 3px solid var(--sage);
+      padding: 1.5rem 2rem;
+      margin-top: 3rem;
+    }
+    .note p { font-size: 0.875rem; }
+    .note a { color: var(--sage-dark); font-weight: 500; }
+
+    @media (max-width: 800px) {
+      .grid { grid-template-columns: 1fr 1fr; }
+      .page { padding: 3rem 1.5rem; }
+    }
+    @media (max-width: 500px) {
+      .grid { grid-template-columns: 1fr; }
+      .cat-header { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="inner">
+
+      <div class="page-header">
+        <span class="eyebrow">What we treat</span>
+        <h2>Conditions we can help with</h2>
+        <div class="divider-center"></div>
+        <p>Acupuncture and Chinese herbal medicine offer a gentle yet powerful approach to a wide range of health conditions. Below are the areas in which we have particular clinical experience.</p>
+      </div>
+
+      <div class="legend">
+        <div class="legend-item"><span class="tag tag--acu">Acupuncture</span> particularly effective</div>
+        <div class="legend-item"><span class="tag tag--herb">Herbal Medicine</span> particularly effective</div>
+      </div>
+
+      <!-- Pain -->
+      <div class="category">
+        <div class="cat-header">
+          <div class="cat-icon">P</div>
+          <h3>Pain & Musculoskeletal</h3>
+        </div>
+        <div class="grid">
+          <div class="item"><div class="item-name">Back & Neck Pain</div><p>Acute and chronic, including disc problems, postural tension and nerve-related pain.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span><span class="tag tag--herb">Herbal Medicine</span></div></div>
+          <div class="item"><div class="item-name">Arthritis</div><p>Osteoarthritis and rheumatoid arthritis — reducing inflammation and easing pain.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span><span class="tag tag--herb">Herbal Medicine</span></div></div>
+          <div class="item"><div class="item-name">Fibromyalgia</div><p>Widespread pain, fatigue and sensitivity — a particularly responsive condition.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span><span class="tag tag--herb">Herbal Medicine</span></div></div>
+          <div class="item"><div class="item-name">Migraines & Headaches</div><p>Prevention and acute management of migraine, tension and cluster headaches.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span><span class="tag tag--herb">Herbal Medicine</span></div></div>
+          <div class="item"><div class="item-name">Sciatica</div><p>Nerve pain radiating from the lower back — often responding very well to acupuncture.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span></div></div>
+          <div class="item"><div class="item-name">Sports Injuries</div><p>Supporting recovery from muscle strains, tendinopathies and joint injuries.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span></div></div>
+        </div>
+      </div>
+
+      <!-- Stress -->
+      <div class="category">
+        <div class="cat-header">
+          <div class="cat-icon">M</div>
+          <h3>Stress, Anxiety & Mental Wellbeing</h3>
+        </div>
+        <div class="grid">
+          <div class="item"><div class="item-name">Anxiety</div><p>Generalised anxiety and situational stress — calming the nervous system and building resilience.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span><span class="tag tag--herb">Herbal Medicine</span></div></div>
+          <div class="item"><div class="item-name">Depression & Low Mood</div><p>Supporting emotional balance alongside, or as a complement to, conventional care.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span><span class="tag tag--herb">Herbal Medicine</span></div></div>
+          <div class="item"><div class="item-name">Insomnia</div><p>Difficulty falling or staying asleep — a common and very treatable pattern in Chinese medicine.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span><span class="tag tag--herb">Herbal Medicine</span></div></div>
+          <div class="item"><div class="item-name">Chronic Fatigue</div><p>Persistent exhaustion not explained by rest, addressed through nourishing treatment.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span><span class="tag tag--herb">Herbal Medicine</span></div></div>
+          <div class="item"><div class="item-name">PTSD</div><p>Alongside professional psychological support, acupuncture can aid trauma recovery.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span></div></div>
+          <div class="item"><div class="item-name">Tinnitus & Vertigo</div><p>Ringing in the ears and dizziness — often linked to underlying imbalances that respond well.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span><span class="tag tag--herb">Herbal Medicine</span></div></div>
+        </div>
+      </div>
+
+      <!-- Women's Health -->
+      <div class="category">
+        <div class="cat-header">
+          <div class="cat-icon">W</div>
+          <h3>Women's Health</h3>
+        </div>
+        <div class="grid">
+          <div class="item"><div class="item-name">Menopause</div><p>Hot flushes, night sweats, mood changes and brain fog — natural, effective support.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span><span class="tag tag--herb">Herbal Medicine</span></div></div>
+          <div class="item"><div class="item-name">Endometriosis</div><p>Pain management and hormonal regulation alongside conventional medical care.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span><span class="tag tag--herb">Herbal Medicine</span></div></div>
+          <div class="item"><div class="item-name">PCOS</div><p>Hormonal regulation, cycle regularity and associated symptoms including skin changes.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span><span class="tag tag--herb">Herbal Medicine</span></div></div>
+          <div class="item"><div class="item-name">Menstrual Irregularities</div><p>Absent, infrequent, heavy or painful periods — a rich tradition in Chinese gynaecology.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span><span class="tag tag--herb">Herbal Medicine</span></div></div>
+          <div class="item"><div class="item-name">PMS</div><p>Premenstrual tension, mood changes, bloating and fatigue before menstruation.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span><span class="tag tag--herb">Herbal Medicine</span></div></div>
+          <div class="item"><div class="item-name">Fertility Support</div><p>Supporting natural conception and assisting alongside IVF and other ART.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span><span class="tag tag--herb">Herbal Medicine</span></div></div>
+        </div>
+      </div>
+
+      <!-- Digestive -->
+      <div class="category">
+        <div class="cat-header">
+          <div class="cat-icon">D</div>
+          <h3>Digestive Health</h3>
+        </div>
+        <div class="grid">
+          <div class="item"><div class="item-name">IBS</div><p>Abdominal pain, bloating and altered bowel habit — lasting relief through holistic treatment.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span><span class="tag tag--herb">Herbal Medicine</span></div></div>
+          <div class="item"><div class="item-name">Acid Reflux & GORD</div><p>Heartburn and oesophageal discomfort — herbal medicine can be particularly effective.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span><span class="tag tag--herb">Herbal Medicine</span></div></div>
+          <div class="item"><div class="item-name">Nausea</div><p>Pregnancy nausea, post-operative nausea and chronic digestive upset.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span></div></div>
+          <div class="item"><div class="item-name">Constipation & Diarrhoea</div><p>Restoring healthy bowel function through individually tailored treatment.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span><span class="tag tag--herb">Herbal Medicine</span></div></div>
+          <div class="item"><div class="item-name">Weak Digestion</div><p>Poor appetite, bloating after eating, slow digestion and post-meal fatigue.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span><span class="tag tag--herb">Herbal Medicine</span></div></div>
+          <div class="item"><div class="item-name">Inflammatory Bowel Disease</div><p>Supportive care for Crohn's and ulcerative colitis alongside conventional management.</p><div class="item-tags"><span class="tag tag--herb">Herbal Medicine</span></div></div>
+        </div>
+      </div>
+
+      <!-- Respiratory -->
+      <div class="category">
+        <div class="cat-header">
+          <div class="cat-icon">R</div>
+          <h3>Respiratory & Immune Health</h3>
+        </div>
+        <div class="grid">
+          <div class="item"><div class="item-name">Asthma</div><p>Reducing frequency and severity of episodes alongside conventional respiratory management.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span><span class="tag tag--herb">Herbal Medicine</span></div></div>
+          <div class="item"><div class="item-name">Hayfever</div><p>Reducing seasonal allergic rhinitis — most effective when begun before the season starts.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span><span class="tag tag--herb">Herbal Medicine</span></div></div>
+          <div class="item"><div class="item-name">Allergic Rhinitis</div><p>Year-round congestion, sneezing and itching — addressing both symptoms and immune function.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span><span class="tag tag--herb">Herbal Medicine</span></div></div>
+          <div class="item"><div class="item-name">Recurrent Infections</div><p>Recurrent colds and sinusitis — strengthening immune function for greater resilience.</p><div class="item-tags"><span class="tag tag--acu">Acupuncture</span><span class="tag tag--herb">Herbal Medicine</span></div></div>
+          <div class="item"><div class="item-name">Skin Conditions</div><p>Eczema, psoriasis, acne and urticaria — Chinese medicine has a rich dermatology tradition.</p><div class="item-tags"><span class="tag tag--herb">Herbal Medicine</span></div></div>
+          <div class="item"><div class="item-name">Chronic Cough</div><p>Persistent cough following illness or linked to postnasal drip, reflux or asthma.</p><div class="item-tags"><span class="tag tag--herb">Herbal Medicine</span></div></div>
+        </div>
+      </div>
+
+      <div class="note">
+        <p><strong style="color:var(--charcoal);font-weight:500;">Not sure if your condition is listed?</strong> Please call for an informal chat on <a href="tel:+447747065296">07747 065296</a>. There are many more conditions for which acupuncture and herbal medicine have a meaningful evidence base — Sue is happy to discuss whether treatment could help you.</p>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
