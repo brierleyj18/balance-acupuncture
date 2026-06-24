@@ -4,20 +4,24 @@
    Google Fonts must be loaded BEFORE this file in <head>
    ============================================================ */
 
+/* Handwritten font for section eyebrows */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&display=swap');
+
 /* ── Design Tokens ── */
 :root {
   --cream:        #f9f6f1;
   --warm-white:   #fdfbf8;
-  --sage:         #8a9e8c;
-  --sage-light:   #b8c9b9;
-  --sage-dark:    #5f7861;
+  --sage:         #7eaa85;
+  --sage-light:   #a8c8ab;
+  --sage-dark:    #4e7a58;
   --stone:        #c9bfae;
   --charcoal:     #3a3530;
-  --mid-grey:     #6b6460;
+  --mid-grey:     #524f4c;
   --light-grey:   #9e9894;
   --border:       #e4ddd4;
   --font-serif:   'Cormorant Garamond', Georgia, serif;
   --font-sans:    'Inter', system-ui, -apple-system, sans-serif;
+  --font-hand:    'Caveat', cursive;
 }
 
 /* ── Reset ── */
@@ -26,7 +30,7 @@ html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-sans);
   font-weight: 300;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.8;
   color: var(--charcoal);
   background: var(--warm-white);
@@ -43,8 +47,8 @@ h1, h2, h3, h4 {
   color: var(--charcoal);
 }
 h1 { font-size: clamp(2.4rem, 5vw,   4rem); }
-h2 { font-size: clamp(1.9rem, 3.5vw, 2.8rem); }
-h3 { font-size: clamp(1.3rem, 2vw,   1.8rem); }
+h2 { font-size: clamp(2.3rem, 4vw,   3.4rem); }
+h3 { font-size: clamp(1.5rem, 2.5vw, 2.1rem); }
 h4 { font-size: 1.05rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; }
 p  { color: var(--mid-grey); font-size: 0.975rem; line-height: 1.9; }
 
@@ -56,14 +60,13 @@ p  { color: var(--mid-grey); font-size: 0.975rem; line-height: 1.9; }
 .text-center { text-align: center; }
 
 .eyebrow {
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
   font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--sage);
+  letter-spacing: 0.02em;
+  color: var(--sage-dark);
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .divider        { width: 40px; height: 1px; background: var(--sage); margin: 1.5rem auto; }

@@ -7,21 +7,21 @@
   <meta name="description" content="Personalised Chinese herbal medicine prescriptions at Balance Acupuncture — supporting your wellbeing alongside acupuncture treatment, or as a standalone therapy." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
-    :root{--cream:#f9f6f1;--warm-white:#fdfbf8;--sage:#8a9e8c;--sage-light:#b8c9b9;--sage-dark:#5f7861;--stone:#c9bfae;--charcoal:#3a3530;--mid-grey:#6b6460;--light-grey:#9e9894;--border:#e4ddd4;--font-serif:'Cormorant Garamond',Georgia,serif;--font-sans:'Inter',system-ui,sans-serif;}
+    :root{--cream:#f9f6f1;--warm-white:#fdfbf8;--sage:#7eaa85;--sage-light:#a8c8ab;--sage-dark:#4e7a58;--stone:#c9bfae;--charcoal:#3a3530;--mid-grey:#524f4c;--light-grey:#9e9894;--border:#e4ddd4;--font-serif:'Cormorant Garamond',Georgia,serif;--font-sans:'Inter',system-ui,sans-serif;--font-hand:'Caveat',cursive;}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
-    body{font-family:var(--font-sans);font-weight:300;font-size:16px;line-height:1.8;color:var(--charcoal);background:var(--warm-white);}
+    body{font-family:var(--font-sans);font-weight:300;font-size:17px;line-height:1.8;color:var(--charcoal);background:var(--warm-white);}
     img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}
     h1,h2,h3,h4{font-family:var(--font-serif);font-weight:300;letter-spacing:.01em;line-height:1.2;color:var(--charcoal);}
-    h1{font-size:clamp(2.4rem,5vw,4rem);}h2{font-size:clamp(1.9rem,3.5vw,2.8rem);}
-    h3{font-size:clamp(1.25rem,2vw,1.65rem);}
+    h1{font-size:clamp(2.4rem,5vw,4rem);}h2{font-size:clamp(2.3rem,4vw,3.4rem);}
+    h3{font-size:clamp(1.5rem,2.5vw,2.1rem);}
     h4{font-size:1.1rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;}
     p{color:var(--mid-grey);font-size:.975rem;line-height:1.9;}
     .container{max-width:1120px;margin:0 auto;padding:0 2rem;}
     .section{padding:5rem 0;}.section--alt{background:var(--cream);}
-    .eyebrow{font-family:var(--font-sans);font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--sage);display:block;margin-bottom:1rem;}
+    .eyebrow{font-family:var(--font-hand);font-size:1.35rem;font-weight:500;letter-spacing:.02em;color:var(--sage-dark);display:block;margin-bottom:.8rem;}
     .divider{width:40px;height:1px;background:var(--sage);margin:1.5rem auto;}.divider--left{margin-left:0;}
     .btn{display:inline-block;padding:.85rem 2.2rem;font-family:var(--font-sans);font-size:.75rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;border:1px solid currentColor;transition:all .3s ease;cursor:pointer;}
     .btn--sage{color:var(--sage-dark);border-color:var(--sage-dark);background:transparent;}.btn--sage:hover{background:var(--sage-dark);color:var(--warm-white);}
@@ -131,10 +131,38 @@
     .cta-tel{font-family:var(--font-serif);font-size:1.8rem;font-style:italic;color:rgba(255,255,255,.9);display:block;margin-bottom:2rem;}
     .cta-actions{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;}
 
+    /* ── Photo gallery (crossfade) ── */
+    .herbal-intro-img {
+      aspect-ratio: 4/5;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(160deg, #d4e0d4 0%, var(--stone) 100%);
+    }
+    .gallery-slide {
+      position: absolute; inset: 0;
+      opacity: 0; transition: opacity 1.4s ease;
+    }
+    .gallery-slide.active { opacity: 1; }
+    .gallery-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .gallery-dots {
+      position: absolute; bottom: 1.2rem; left: 0; right: 0;
+      display: flex; justify-content: center; gap: 0.55rem; z-index: 2;
+    }
+    .gallery-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+      border: 1px solid rgba(255,255,255,0.65);
+      cursor: pointer; padding: 0;
+      transition: background 0.3s;
+    }
+    .gallery-dot.active { background: rgba(255,255,255,0.95); }
+    .gallery-dot:hover { background: rgba(255,255,255,0.75); }
+
     @media(max-width:900px){
       .herbal-hero-inner{grid-template-columns:1fr;}.herbal-hero-visual{display:none;}
       .process-steps{grid-template-columns:1fr 1fr;}
       .safety-grid{grid-template-columns:1fr;}
+      .herbal-intro-img { aspect-ratio: 3/2; min-height: 0; }
     }
     @media(max-width:600px){.process-steps{grid-template-columns:1fr;}.process-step{border-right:none;border-bottom:1px solid var(--border);}}
   </style>
@@ -143,7 +171,7 @@
 
 <header class="site-header" id="site-header">
   <nav class="nav-inner">
-    <a href="index.html" class="nav-logo">Balance <span>&</span> Restore</a>
+    <a href="index.html" class="nav-logo">Balance <span>Acupuncture</span></a>
     <ul class="nav-links" id="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
@@ -171,19 +199,8 @@
         <a href="#what-is-herbal" class="btn btn--sage">Learn More</a>
       </div>
     </div>
-    <div class="herbal-hero-visual">
-      <svg viewBox="0 0 300 400" width="240" fill="none">
-        <path d="M150 370 C150 370 70 280 60 200 C50 120 95 70 150 60 C205 50 250 100 245 180 C240 255 150 370 150 370Z" stroke="#5f7861" stroke-width="2" fill="rgba(95,120,97,.15)"/>
-        <path d="M150 370 C150 370 200 275 215 200 C230 125 210 75 180 62" stroke="#5f7861" stroke-width="1.5" fill="none"/>
-        <path d="M150 200 C120 170 85 170 72 192" stroke="#5f7861" stroke-width="1.2" fill="none"/>
-        <path d="M150 200 C180 172 215 175 225 198" stroke="#5f7861" stroke-width="1.2" fill="none"/>
-        <circle cx="75" cy="192" r="14" stroke="#5f7861" stroke-width="1.2" fill="rgba(95,120,97,.15)"/>
-        <circle cx="225" cy="198" r="10" stroke="#5f7861" stroke-width="1.2" fill="rgba(95,120,97,.15)"/>
-        <circle cx="95" cy="70" r="18" stroke="#5f7861" stroke-width="1.2" fill="rgba(95,120,97,.12)"/>
-        <circle cx="205" cy="65" r="14" stroke="#5f7861" stroke-width="1.2" fill="rgba(95,120,97,.12)"/>
-        <path d="M115 130 C95 115 75 120 68 140" stroke="#5f7861" stroke-width="1" fill="none" opacity=".6"/>
-        <path d="M185 135 C205 118 228 124 234 144" stroke="#5f7861" stroke-width="1" fill="none" opacity=".6"/>
-      </svg>
+    <div class="herbal-hero-visual" style="padding:0;overflow:hidden;">
+      <img src="images/herbal-clinic-2.jpg" alt="Balance Acupuncture clinic — illuminated herb cabinet with rows of Chinese medicinal herb jars" style="width:100%;height:100%;object-fit:cover;" />
     </div>
   </div>
 </section>
@@ -192,26 +209,34 @@
 <section class="intro-section" id="what-is-herbal">
   <div class="container">
     <div class="herbal-intro-grid">
-      <div class="herbal-intro-img">
-        <svg viewBox="0 0 280 340" width="180" fill="none">
-          <path d="M140 310 C140 310 65 230 55 158 C45 86 88 42 140 35 C192 28 238 72 232 148 C226 222 140 310 140 310Z" stroke="#5f7861" stroke-width="1.5" fill="rgba(95,120,97,.12)"/>
-          <path d="M140 310 C140 310 185 225 196 157 C207 89 192 47 168 36" stroke="#5f7861" stroke-width="1.3" fill="none"/>
-          <path d="M95 160 C75 145 55 150 48 168" stroke="#5f7861" stroke-width="1.1" fill="none"/>
-          <path d="M185 165 C205 150 225 156 231 175" stroke="#5f7861" stroke-width="1.1" fill="none"/>
-          <circle cx="88" cy="55" r="16" stroke="#5f7861" stroke-width="1.2" fill="rgba(95,120,97,.1)"/>
-          <circle cx="198" cy="62" r="11" stroke="#5f7861" stroke-width="1.2" fill="rgba(95,120,97,.1)"/>
-          <path d="M110 118 C92 103 72 109 64 128" stroke="#5f7861" stroke-width="1" fill="none" opacity=".5"/>
-          <path d="M172 122 C190 107 211 114 218 133" stroke="#5f7861" stroke-width="1" fill="none" opacity=".5"/>
-        </svg>
+      <div class="herbal-intro-img" id="herbal-gallery">
+        <div class="gallery-slide active">
+          <img src="images/herbal-clinic-1.jpg" alt="Close-up of glass herb jars on backlit shelves at Balance Acupuncture" />
+        </div>
+        <div class="gallery-slide">
+          <img src="images/herbal-clinic-2.jpg" alt="Balance Acupuncture treatment room showing the full herb dispensary cabinet" />
+        </div>
+        <div class="gallery-slide">
+          <img src="images/herbal-clinic-3.jpg" alt="Chinese herbal medicine jars at Balance Acupuncture, warm backlit shelves" />
+        </div>
+        <div class="gallery-slide">
+          <img src="images/herbal-clinic-4.jpg" alt="Balance Acupuncture clinic interior with yin-yang ceiling feature" />
+        </div>
+        <div class="gallery-dots">
+          <button class="gallery-dot active" data-idx="0" aria-label="Photo 1"></button>
+          <button class="gallery-dot" data-idx="1" aria-label="Photo 2"></button>
+          <button class="gallery-dot" data-idx="2" aria-label="Photo 3"></button>
+          <button class="gallery-dot" data-idx="3" aria-label="Photo 4"></button>
+        </div>
       </div>
       <div class="herbal-intro-text">
         <span class="eyebrow">What is it?</span>
         <h2>Rooted in nature, tailored to you</h2>
         <div class="divider divider--left"></div>
-        <p>Chinese herbal medicine is one of the oldest continuous medical traditions in the world, with documented use stretching back over 2,500 years. It forms one of the core pillars of Traditional Chinese Medicine, alongside acupuncture, dietary therapy and movement practices.</p>
-        <p>Herbal formulas are composed of carefully selected combinations of natural plant materials — roots, bark, leaves, seeds, flowers and stems — each with distinct therapeutic properties. These ingredients are combined synergistically, with each formula designed to address your specific pattern of disharmony.</p>
-        <p>Unlike supplements or single-herb remedies, a Chinese herbal prescription treats the whole person. Two patients presenting with the same Western diagnosis may receive entirely different formulas — because Chinese medicine looks beneath the symptom to understand the underlying imbalance.</p>
-        <p>At Balance Acupuncture, herbal medicine is offered both as a complement to acupuncture treatment and as a standalone therapeutic option.</p>
+        <p>Chinese herbal medicine can be used as a standalone treatment, or alongside acupuncture to help build on the work you and I do in clinic.</p>
+        <p>Each formula is chosen for you as an individual, looking at your symptoms, your overall health, and how things change over time. Unlike conventional medicines, which often focus on managing a specific symptom or diagnosis, Chinese herbal medicine takes a broader view — aiming to support the whole person and address root causes alongside the symptoms.</p>
+        <p>When professionally prescribed, Chinese herbal medicine offers a gentler, more personalised approach than conventional treatments, with formulas regularly adjusted to suit your needs and minimise unwanted effects wherever possible.</p>
+        <p>Chinese herbal medicine can be used alongside acupuncture to support your treatment between appointments and help build on the work we do in clinic.</p>
       </div>
     </div>
   </div>
@@ -402,7 +427,7 @@
       <div class="footer-col"><h4>Contact</h4><ul>
         <li><a href="contact.html">Book an Appointment</a></li>
         <li><a href="tel:+447747065296">07747 065296</a></li>
-        <li><a href="mailto:info@balanceacupuncture.uk">info@balanceacupuncture.uk</a></li>
+        <li><a href="mailto:sue@balanceacupuncture.uk">sue@balanceacupuncture.uk</a></li>
         <li><a href="privacy.html">Privacy Policy</a></li>
       </ul></div>
     </div>
@@ -419,6 +444,25 @@
   const toggle=document.getElementById('nav-toggle');
   const navLinks=document.getElementById('nav-links');
   toggle.addEventListener('click',()=>navLinks.classList.toggle('open'));
+
+  // Photo gallery crossfade
+  (function(){
+    const gallery=document.getElementById('herbal-gallery');
+    if(!gallery)return;
+    const slides=gallery.querySelectorAll('.gallery-slide');
+    const dots=gallery.querySelectorAll('.gallery-dot');
+    let cur=0,timer;
+    function go(n){
+      slides[cur].classList.remove('active');
+      dots[cur].classList.remove('active');
+      cur=(n+slides.length)%slides.length;
+      slides[cur].classList.add('active');
+      dots[cur].classList.add('active');
+    }
+    function resetTimer(){ clearInterval(timer); timer=setInterval(()=>go(cur+1),5000); }
+    dots.forEach((d,i)=>d.addEventListener('click',()=>{ go(i); resetTimer(); }));
+    resetTimer();
+  })();
 </script>
 </body>
 </html>
